@@ -1,0 +1,28 @@
+# IDE settings
+.idea/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+tf_env/
+
+# Model files (nặng)
+*.h5
+*.keras
+*.pb
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs and checkpoints
+logs/
+checkpoints/
+
+# Large data files
+*.csv
+*.tsv
+*.json
+*.zip
