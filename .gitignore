@@ -4,8 +4,8 @@
 tf_env/
 __pycache__/
 *.pyc
-*.h5
-*.keras
+# *.h5
+# *.keras
 *.pb
 logs/
 checkpoints/
