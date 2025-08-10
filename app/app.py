@@ -9,13 +9,18 @@ CLASS_NAMES = [
 ]
 
 @st.cache_resource
-def get_model(path="fashion_mnist_model.keras"):
-    return load_model(path)
+def get_model():
+    return load_model("app/fashion_mnist_model.keras")
 
 def preprocess(img):
-    img = ImageOps.grayscale(img).resize((28, 28))
-    x = (np.array(img).astype("float32") / 255.0)[None, ..., None]
-    return x
+    img = ImageOps.grayscale(img)
+    img = ImageOps.pad(img, size=(28, 28), color=0, method=Image.BILINEAR)
+
+    arr = np.array(img).astype("float32") / 255.0
+    if arr.mean() > 0.5:
+        arr = 1.0 - arr
+    arr = arr[None, ..., None]
+    return arr
 
 def predict(img):
     x = preprocess(img)
